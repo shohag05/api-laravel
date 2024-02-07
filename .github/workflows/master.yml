@@ -9,23 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     name: Deploy via FTP
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-    - name: Use Node.js
-      uses: actions/setup-node@v1
-      with:
-        node-version: '18'
-
-    - name: Build
-      run: |
-        npm install
-        npm run production  # or any other build scripts you use
-
-    - name: FTP-Deploy-Action
+    - name: FTP Deployer
       uses: SamKirkland/FTP-Deploy-Action@4.1.0
       with:
-        ftp-server: ${{ secrets.FTP_SERVER }}
-        ftp-username: ${{ secrets.FTP_USER }}
-        ftp-password: ${{ secrets.FTP_PASS }}
-        local-dir: /dev.codeforsite.com  # Directory to upload
-        git-ftp-args: --insecure  # Use this if your FTP server does not support FTP over TLS
+        server: ${{ secrets.FTP_SERVER }} # e.g. ftp.host.com or sftp.host.com (without ftp:// or sftp://)
+        port: 22 # optional, default is: 21
+        username: ${{ secrets.FTP_USER }} # FTP username
+        password: ${{ secrets.FTP_PASS }} # FTP password
+        local-dir: ./ # Adjust to the directory you want to deploy
+        remote-dir: /dev.codeforsite.com
