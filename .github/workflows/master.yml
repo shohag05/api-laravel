@@ -9,15 +9,16 @@ jobs:
     runs-on: ubuntu-latest
     name: Deploy via FTP
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: FTP Deployer
-      uses: SamKirkland/FTP-Deploy-Action@4.1.0
-      with:
-        host: ${{ secrets.FTP_SERVER }} # e.g. ftp.host.com or sftp.host.com (without ftp:// or sftp://)
-        port: 22 # optional, default is: 21
-        username: ${{ secrets.FTP_USER }} # FTP username
-        password: ${{ secrets.FTP_PASS }} # FTP password
-        local-dir: ./ # Adjust to the directory you want to deploy
-        remote_folder: /dev.codeforsite.com
+      - name: FTP Deployer
+        uses: SamKirkland/FTP-Deploy-Action@4.1.0
+        with:
+          server: ${{ secrets.FTP_SERVER }}  # Your FTP server address
+          username: ${{ secrets.FTP_USER }}  # Your FTP username
+          password: ${{ secrets.FTP_PASS }}  # Your FTP password
+          local_folder: ./  # Directory to upload from, '.' means the root of your project
+          remote_folder: /dev.codeforsite.com  # Target directory on your FTP server
+          # The following line is for SFTP, remove it if you're using standard FTP
+          port: 22  # The default port for SFTP is 22, for FTP is 21
