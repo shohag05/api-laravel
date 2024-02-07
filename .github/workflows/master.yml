@@ -1,0 +1,22 @@
+name: Deploy to DreamHost
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Deploy to DreamHost
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.DREAMHOST_HOST }}
+        username: ${{ secrets.DREAMHOST_USER }}
+        key: ${{ secrets.DREAMHOST_SSH_KEY }}
+        script: |
+          cd /path/to/your/project
+          git pull origin main
+          # Your deployment script
