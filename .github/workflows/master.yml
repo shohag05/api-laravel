@@ -17,6 +17,6 @@ jobs:
         username: ${{ secrets.DREAMHOST_USER }}
         key: ${{ secrets.DREAMHOST_SSH_KEY }}
         script: |
-          cd 
+          cd dev.codeforsite.com
           git pull origin main
           # Your deployment script
