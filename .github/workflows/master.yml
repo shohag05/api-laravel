@@ -18,7 +18,7 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}  # Your FTP server address
           username: ${{ secrets.FTP_USER }}  # Your FTP username
           password: ${{ secrets.FTP_PASS }}  # Your FTP password
-          local_folder: ./  # Directory to upload from, '.' means the root of your project
-          remote_folder: /dev.codeforsite.com  # Target directory on your FTP server
+          local-dir: ./  # Directory to upload from, '.' means the root of your project
+          server-dir: /dev.codeforsite.com  # Target directory on your FTP server
           # The following line is for SFTP, remove it if you're using standard FTP
           port: 22  # The default port for SFTP is 22, for FTP is 21
