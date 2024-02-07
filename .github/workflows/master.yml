@@ -3,7 +3,7 @@ name: Deploy to DreamHost
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   deploy:
@@ -17,6 +17,6 @@ jobs:
         username: ${{ secrets.DREAMHOST_USER }}
         key: ${{ secrets.DREAMHOST_SSH_KEY }}
         script: |
-          cd /path/to/your/project
+          cd 
           git pull origin main
           # Your deployment script
