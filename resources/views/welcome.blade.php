@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Lravue</title>
+        <title>Lravue change</title>
 
         <!-- Fonts -->
         <!-- Url not found -->
