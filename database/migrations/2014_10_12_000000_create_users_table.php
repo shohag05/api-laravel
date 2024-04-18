@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('role')->default('user');
+            $table -> timestamp('email_verified_at')->default(null);
+            $table->string('remember_token')->default(null);
 
             $table -> timestamp('created_at')->useCurrent();
             $table -> timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
