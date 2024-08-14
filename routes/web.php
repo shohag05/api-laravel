@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BotController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/bot/{thread_id}', [BotController::class, 'GetThread']);
+
+Route::post('/bot/create_thread', [BotController::class, 'CreateThread']);
+// Route::post('/{url}/{title}/{thread_id}', [BotController::class, 'CreateThread']);  // create data with parameter
+
+
+
